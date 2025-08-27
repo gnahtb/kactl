@@ -14,6 +14,12 @@
 	\kactlimport{KnuthDP.h}
 	\kactlimport{DivideAndConquerDP.h}
 
+\section{Flow networks}
+	\begin{itemize}
+		\item \textbf{Project selection:} Given $N$ projects and $M$ machines. Machine $i$ costs $q_i$. Project $i$ yields $p_i$ revenue. Each project requires a set of machines. Multiple projects can share the same machines. Pick a subset of machines and projects to maximize the profit. Add edges of capacity $p_i$ from the source to project $i$, edges of capacity $q_i$ from machine $i$ to the sink, and edges of infinite capacity between each project and each of its required machines.
+		\item \textbf{Image segmentation:} Given $n$ pixels. Pixel $i$ must be assigned foreground value $f_i$ or background value $b_i$. There is a penalty of $p_{i,j}$ if pixels $i$, $j$ are adjacent and have different assignments. Connect source to all the pixels with capacity $f_i$, and connect the sink to all the pixels with capacity $b_i$. Two edges $(i, j)$ and $(j, i)$ with capacity $p_{i,j}$ are added between two adjacent pixels.
+	\end{itemize}
+
 \section{Debugging tricks}
 	\begin{itemize}
 		\item \verb@signal(SIGSEGV, [](int) { _Exit(0); });@ converts segfaults into Wrong Answers.
